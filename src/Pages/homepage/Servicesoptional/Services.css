@@ -1,0 +1,64 @@
+.services{
+    background-color: rgba(245, 245, 220, 0.253);
+}
+.heading{
+ 
+    font-family: Georgia, sans-serif;
+    font-size: 3em;
+    letter-spacing: -2px;
+       
+}
+.cardsimg{
+    height: 200px;
+}
+/*************************************/
+/* Float Shadow */
+.hvr-float-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    transition-duration: 0.3s;
+    transition-property: transform;
+  }
+  .hvr-float-shadow:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0; 
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    /* W3C */
+    transition-duration: 0.3s;   
+    transition-property: transform, opacity;
+  }
+  .hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {   
+    transform: translateY(-5px);
+    /* move the element up by 5px */
+  }
+  .hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+    opacity: 1;  
+    transform: translateY(5px);
+    /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+  }
+  
+/***********************************/
+
+.hvr-grow-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transition-duration: 0.3s;
+    transition-property: box-shadow, transform;
+  }
+  .hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+

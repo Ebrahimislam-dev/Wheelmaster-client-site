@@ -1,0 +1,14 @@
+.line{
+    width: 112px;
+    height: 47px;
+    border-bottom: 2px solid rgb(233, 17, 17);
+    position: absolute;
+}
+
+.icons{
+    border: 1px solid rgba(255, 0, 0, 0.384);
+}
+.icons:hover{
+    border: 1px solid red;
+    
+}

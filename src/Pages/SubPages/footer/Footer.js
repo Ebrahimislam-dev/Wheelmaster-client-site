@@ -96,8 +96,8 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                     <li className="footer-menu">
-                                        <Link to="/faqs" className="footer-menu text-decoration-none">
-                                            FAQ's
+                                        <Link to="/exploreProducts" className="footer-menu text-decoration-none">
+                                           Explore
                                         </Link>
                                     </li>
 
@@ -169,19 +169,15 @@ const Footer = () => {
                                             24/7 Support
                                         </Link>
                                     </li>
+                                  
                                     <li className="footer-menu">
-                                        <Link to="/contact" className="footer-menu text-decoration-none">
-                                            Experienced Guides
+                                        <Link to="/" className="footer-menu text-decoration-none">
+                                            Home delivery
                                         </Link>
                                     </li>
                                     <li className="footer-menu">
-                                        <Link to="/contact" className="footer-menu text-decoration-none">
-                                            Personal Guides
-                                        </Link>
-                                    </li>
-                                    <li className="footer-menu">
-                                        <Link to="/contact" className="footer-menu text-decoration-none">
-                                            Secure TourPlan
+                                        <Link to="/" className="footer-menu text-decoration-none">
+                                            Secure Payment
                                         </Link>
                                     </li>
 

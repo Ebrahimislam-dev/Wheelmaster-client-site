@@ -34,7 +34,7 @@ const Booking = () => {
 
     // useEffect(() => {
     //     setIsLoading(true);
-    //     fetch('http://localhost:5000/products')
+    //     fetch('https://salty-river-79195.herokuapp.com/products')
     //         .then(res => res.json())
     //         .then(data => {
     //             // console.log(data);
@@ -53,7 +53,7 @@ const Booking = () => {
 
     const onSubmit = (data) => {
         data.email = user?.email;
-        axios.post('http://localhost:5000/order', data)
+        axios.post('https://salty-river-79195.herokuapp.com/order', data)
             .then(res => {
                 if (res.data.insertedId) {
 

@@ -16,7 +16,7 @@ const Myorder = () => {
     // loading data from database 
     useEffect(() => {
         setIsLoading(true);
-        fetch(`http://localhost:5000/myorder/${user?.email}`)
+        fetch(`https://salty-river-79195.herokuapp.com/myorder/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyOrders(data);
@@ -30,7 +30,7 @@ const Myorder = () => {
 
     // Delete Api
     const handleDelete = id => {
-        const url = `http://localhost:5000/allorder/${id}`;
+        const url = `https://salty-river-79195.herokuapp.com/allorder/${id}`;
         fetch(url, {
             method: "DELETE"
         })
@@ -86,7 +86,7 @@ const Myorder = () => {
 
                                                     </div>
                                                     <div className="flex items-center mt-3 md:mt-0">
-                                                        <button className="text-gray-200">{status}  </button>
+                                                        
                                                         <button onClick={() => handleDelete(_id)}><MdDelete className=" text-3xl text-red-500" /></button>
                                                     </div>
                                                 </div>

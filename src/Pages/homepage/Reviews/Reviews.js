@@ -5,7 +5,7 @@ import Slider from "react-slick";
 
 
 const Reviews = () => {
-    // const [setCountRestaurant] = useState([])
+
     const [reviews, setReviews] = useState([])
     var settings = {
 
@@ -36,21 +36,15 @@ const Reviews = () => {
 
     };
     useEffect(() => {
-
-        axios.get('http://localhost:5000/reviews')
+        
+        axios.get('https://salty-river-79195.herokuapp.com/reviews')
             .then(res => {
                 console.log(res);
                 setReviews(res.data)
             })
     }, [])
 
-    // useEffect(() => {
-    //     axios.get(`https://pure-citadel-76424.herokuapp.com/countRestaurant/`)
-    //         .then(res => {
-    //             console.log(res);
-    //             setCountRestaurant(res.data)
-    //         })
-
+   
 
 
     return (

@@ -13,7 +13,7 @@ const ManageOrders = () => {
         getData()
     }, [])
     const getData = () => {
-        axios.get(' http://localhost:5000/allorder')
+        axios.get(' https://salty-river-79195.herokuapp.com/allorder')
             .then((res) => {
                 setOrders(res.data)
                 setIsLoading(false)
@@ -22,7 +22,7 @@ const ManageOrders = () => {
 
     const handleDeleteOrder = (id) => {
         setIsLoading(true)
-        axios.delete(` http://localhost:5000/allorder/${id}`)
+        axios.delete(` https://salty-river-79195.herokuapp.com/allorder/${id}`)
             .then(res => {
                 setIsLoading(false)
                 if (res.data.deletedCount) {
@@ -36,7 +36,7 @@ const ManageOrders = () => {
 
     const handleApproval = (id) => {
         setIsLoading(true)
-        axios.put(` http://localhost:5000/allorder/${id}`, { status: "Shipped" })
+        axios.put(` https://salty-river-79195.herokuapp.com/allorder/${id}`, { status: "Shipped" })
             .then((res) => {
                 setIsLoading(false)
                 getData()

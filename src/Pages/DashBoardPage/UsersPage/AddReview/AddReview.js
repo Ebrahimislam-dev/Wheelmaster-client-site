@@ -9,7 +9,7 @@ const AddReview = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://salty-river-79195.herokuapp.com/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added succesfully');

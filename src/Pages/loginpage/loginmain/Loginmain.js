@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
-import useAuth from './../../../hooks/useAuth';
+// import useAuth from './../../../hooks/useAuth';
 import { Alert, Button } from 'react-bootstrap';
 import { Spinner } from 'react-bootstrap';
 
 import './Loginmain.css'
+import useValue from '../../../hooks/useValue';
 
 const Loginmain = () => {
-    const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth()
+    // const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth()
+    const { user, loginUser, signInWithGoogle, isLoading, authError } = useValue()
     const [logindata, setLogindata] = useState({})
     const location = useLocation();
     const history = useHistory();
@@ -41,7 +43,7 @@ const Loginmain = () => {
                             <input
                                 required
                                 type="email"
-                                className="w-8/12 my-2 border"
+                                className="w-8/12 my-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                                 placeholder="Your  Email"
                                 name="email"
                                 onBlur={handleOnChange}
@@ -51,7 +53,8 @@ const Loginmain = () => {
                             <input
                                 required
                                 placeholder="Your Password"
-                                className="w-8/12 my-2 border"
+
+                                className="w-8/12 my-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                                 type="password"
                                 name="password"
                                 onBlur={handleOnChange}

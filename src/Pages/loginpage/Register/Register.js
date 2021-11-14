@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import useAuth from './../../../hooks/useAuth';
+// import useAuth from './../../../hooks/useAuth';
 import { Alert } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Spinner } from 'react-bootstrap';
+import useValue from '../../../hooks/useValue';
 
 const Register = () => {
-    const { user, registerUser, isLoading, authError } = useAuth()
+    // const { user, registerUser, isLoading, authError } = useAuth()
+    const { user, registerUser, isLoading, authError } = useValue()
     const [logindata, setLogindata] = useState({})
     const history = useHistory();
     const handleOnBlur = e => {
@@ -37,7 +39,7 @@ const Register = () => {
                             <input
                                 required
                                 type="text"
-                                className="w-8/12 my-2 border"
+                                className="w-8/12 my-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                                 placeholder="Your Name"
                                 name="name"
                                 onBlur={handleOnBlur}
@@ -45,14 +47,14 @@ const Register = () => {
                             <input
                                 required
                                 type="email"
-                                className="w-8/12 my-2 border"
+                                className="w-8/12 my-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                                 placeholder="Your  Email"
                                 name="email"
                                 onBlur={handleOnBlur}
                             />
                             <input
                                 required
-                                className="w-8/12 my-2 border"
+                                className="w-8/12 my-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                                 type="password"
                                 name="password"
                                 onBlur={handleOnBlur}
@@ -60,7 +62,7 @@ const Register = () => {
                             />
                             <input
                                 required
-                                className="w-8/12 my-2 border"
+                                className="w-8/12 my-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                                 type="password"
                                 name="password2"
                                 onBlur={handleOnBlur}

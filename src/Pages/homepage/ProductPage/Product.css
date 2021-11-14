@@ -1,15 +1,26 @@
-.services{
-    background-color: rgba(245, 245, 220, 0.253);
+
+.line{
+  width: 112px;
+  height: 47px;
+  border-bottom: 2px solid rgb(233, 17, 17);
+  position: absolute;
 }
 .heading{
  
     font-family: Georgia, sans-serif;
-    font-size: 3em;
+    font-size: 2em;
     letter-spacing: -2px;
        
 }
 .cardsimg{
     height: 200px;
+}
+.productCard{
+  border: 1px solid rgba(255, 0, 0, 0.384);
+}
+.productCard:hover{
+  border: 1px solid red;
+  
 }
 /*************************************/
 /* Float Shadow */

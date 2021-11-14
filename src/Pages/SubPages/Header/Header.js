@@ -2,23 +2,25 @@ import React, { useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
 import { NavLink } from 'react-router-dom';
-import useAuth from './../../../hooks/useAuth';
+import useValue from '../../../hooks/useValue';
+// import useAuth from './../../../hooks/useAuth';
 
 
 
 
 const Header = () => {
     const [navbar, setNavbar] = useState(false)
-    const { user, logOut } = useAuth();
+    // const { admin, user, logOut } = useAuth();
+    const { admin, user, logOut } = useValue();
     const changBackground = () => {
         window.scrollY >= 100 ? setNavbar(false) : setNavbar(true)
     }
     window.addEventListener('scroll', changBackground)
     return (
         <div>
-             <nav className={navbar ? "md:fixed md:w-screen md:flex justify-around items-center w-full py-6 " : "md:fixed md:w-screen md:flex justify-around items-center w-full py-6 bg-white shadow-lg z-10 "}>
+            <nav className={navbar ? "md:fixed md:w-screen md:flex justify-around items-center w-full py-6 " : "md:fixed md:w-screen md:flex justify-around items-center w-full py-6 bg-white shadow-lg z-10 "}>
                 <div className=" md:mr-20 ">
-                <NavLink to="/home" className=" text-2xl font-bold no-underline flex md:justify-start justify-center items-center" >
+                    <NavLink to="/home" className=" text-2xl font-bold no-underline flex md:justify-start justify-center items-center" >
                         <img src="https://i.ibb.co/rFJsMZv/main-logo.png" alt="" className="w-10" />
                         <span className={navbar ? " md:text-white font-mono mt-2" : " md:text-black font-mono mt-2"}>Wheelmaster</span>
                     </NavLink>
@@ -30,14 +32,22 @@ const Header = () => {
                             <Navbar.Collapse id="responsive-navbar-nav" >
                                 <Nav  >
                                     <NavLink to="/home" ><span className={navbar ? "font-bold uppercase md:mr-6 mr-0 no-underline group md:text-white hover:text-red-600" : "font-bold uppercase md:mr-6 mr-0 no-underline group md:text-black  hover:text-red-700"}>Home</span></NavLink>
-                                    <NavLink to="/"><span className={navbar ? "font-bold uppercase md:mx-6  no-underline md:text-white hover:text-red-600 " : "font-bold uppercase md:mx-6  no-underline md:text-black hover:text-red-700 "}>Explore Products</span></NavLink>
-                                    <NavLink to="/"><span className={navbar ? "font-bold uppercase md:mx-6  no-underline md:text-white hover:text-red-600 " : "font-bold uppercase md:mx-6  no-underline md:text-black hover:text-red-700 "}>AboutUS</span></NavLink>
-                                    <NavLink to="/foods" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white hover:text-red-600 " : "font-bold uppercase md:mx-6 no-underline md:text-black hover:text-red-700 "}>ContactUS</span></NavLink>
+                                    <NavLink to="/exploreProducts"><span className={navbar ? "font-bold uppercase md:mx-6  no-underline md:text-white hover:text-red-600 " : "font-bold uppercase md:mx-6  no-underline md:text-black hover:text-red-700 "}>Explore Products</span></NavLink>
+                                    <NavLink to="/about"><span className={navbar ? "font-bold uppercase md:mx-6  no-underline md:text-white hover:text-red-600 " : "font-bold uppercase md:mx-6  no-underline md:text-black hover:text-red-700 "}>AboutUS</span></NavLink>
+                                    <NavLink to="/contact" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white hover:text-red-600 " : "font-bold uppercase md:mx-6 no-underline md:text-black hover:text-red-700 "}>ContactUS</span></NavLink>
                                     {user.email &&
                                         <span className="flex flex-col md:flex-row">
-                                            <NavLink to="/myOrders" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white hover:text-red-600 " : "font-bold uppercase md:mx-6 no-underline md:text-black hover:text-red-700 "}>DashBoard</span></NavLink>
-                                          </span>
+                                            <NavLink to="/dashboard" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white hover:text-red-600 " : "font-bold uppercase md:mx-6 no-underline md:text-black hover:text-red-700 "}>DashBoard</span></NavLink>
+                                        </span>
                                     }
+                                    {/* {admin &&
+                                        <span className="flex flex-col md:flex-row">
+                                            <NavLink to="/addproduct" ><span className={navbar ? "font-bold uppercase md:mx-6 no-underline md:text-white hover:text-red-600 " : "font-bold uppercase md:mx-6 no-underline md:text-black hover:text-red-700 "}>addproduct</span></NavLink>
+                                        </span>
+
+
+
+                                    } */}
 
 
                                 </Nav>

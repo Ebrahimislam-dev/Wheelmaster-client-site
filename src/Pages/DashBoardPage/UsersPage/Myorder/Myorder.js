@@ -1,10 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import { Spinner, Table } from "react-bootstrap";
-import useAuth from "./../../../hooks/useAuth";
+import useValue from '../../../../hooks/useValue';
+// import useAuth from '../../../hooks/useAuth';
+
 
 const Myorder = () => {
-    const { user } = useAuth();
+    // const { user } = useAuth();
+    const { user } = useValue();
     const [myorders, setMyOrders] = useState([]);
     const [orders, setOrders] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +16,7 @@ const Myorder = () => {
     // loading data from database 
     useEffect(() => {
         setIsLoading(true);
-        fetch(`https://frozen-refuge-45390.herokuapp.com/myorder/${user?.email}`)
+        fetch(`http://localhost:5000/myorder/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyOrders(data);
@@ -27,7 +30,7 @@ const Myorder = () => {
 
     // Delete Api
     const handleDelete = id => {
-        const url = `https://frozen-refuge-45390.herokuapp.com/allorder/${id}`;
+        const url = `http://localhost:5000/allorder/${id}`;
         fetch(url, {
             method: "DELETE"
         })
@@ -48,7 +51,7 @@ const Myorder = () => {
 
     return (
         <div>
-            <h1 className="heading mt-5 mb-5">MY <span className="text-danger ">ORDERS</span></h1>
+            <h1 className="heading mt-5 mb-5 text-white">MY <span className="text-danger ">ORDERS</span></h1>
             {
 
                 isLoading ? (
@@ -59,7 +62,7 @@ const Myorder = () => {
                 ) : (
                     <div className="container-fluid row  mb-1">
                         <div className="container col-md-10">
-                            <Table responsive="sm" striped bordered hover>
+                            <Table responsive="sm" className="text-white" striped bordered hover>
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -77,15 +80,15 @@ const Myorder = () => {
                                 {myorders?.map((order, index) => (
                                     <tbody>
                                         <tr>
-                                            <td >{index}</td>
-                                            <td >{order?.name}</td>
-                                            <td>{order?.displayName}</td>
-                                            <td>{order?.email}</td>
+                                            <td className="text-white">{index}</td>
+                                            <td className="text-white">{order?.name}</td>
+                                            <td className="text-white">{order?.displayName}</td>
+                                            <td className="text-white">{order?.email}</td>
 
-                                            <td>{order?.date}</td>
-                                            <td>{order?.status}</td>
-                                            <button className="btn-outline-danger mt-1 mb-3 fw-bold px-3" onClick={() => handleDelete(order._id)} >Cancel</button>
-                                            <button className="btn-outline-success p-2 mb-1 fw-bold">Approved</button>
+                                            <td className="text-white">{order?.date}</td>
+                                            <td className="text-white">{order?.status}</td>
+                                            <button className="btn-outline-danger mt-1 mb-3 fw-bold px-3 text-white" onClick={() => handleDelete(order._id)} >Cancel</button>
+                                            <button className="btn-outline-success p-2 mb-1 fw-bold text-white">Approved</button>
 
                                         </tr>
                                     </tbody>

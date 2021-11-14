@@ -1,168 +1,112 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { Button } from '@mui/material';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams,
-    useRouteMatch
-} from 'react-router-dom';
-import DashBoardHome from '../DashBoardHome/DashBoardHome';
-import MakeAdmin from '../MakeAdmin/MakeAdmin';
-import AddDoctor from '../AddDoctor/AddDoctor';
-import useAuth from '../../../hooks/useAuth';
-import AdminRoute from '../../loginpage/AdminRoute/AdminRoute';
+import React, { useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 
-const drawerWidth = 160;
-
-function DashBoard(props) {
+import ManageProducts from '../AdminPage/ManageProducts/ManageProducts';
+import Myorder from './../UsersPage/Myorder/Myorder';
+import AddReview from './../UsersPage/AddReview/AddReview';
+import Payment from './../UsersPage/PaymentMethod/Payment';
+import MakeAdmin from '../AdminPage/MakeAdmin/MakeAdmin';
+import ManageAllOrder from '../AdminPage/ManageAllOrder/ManageAllOrder';
+import AddProducts from '../AdminPage/AddProduct/AddProducts';
+import useValue from '../../../hooks/useValue';
+import './DashBoard.css'
+import { Link } from 'react-router-dom';
 
 
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    let { path, url } = useRouteMatch();
-    const { admin } = useAuth();
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
 
-    const drawer = (
-        <div>
-            <Toolbar />
-            <Divider />
 
-            <Link style={{ textDecoration: "none", color: "gray" }} to="appointment"><Button color="inherit">Appointment</Button></Link>
-            <Link style={{ textDecoration: "none", color: "gray" }} to={`${url}`}><Button color="inherit">DashBoard</Button></Link>
-            {admin && <Box>
-                <Link style={{ textDecoration: "none", color: "gray" }} to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
-                <Link style={{ textDecoration: "none", color: "gray" }} to={`${url}/addDoctor`}><Button color="inherit">Add doctor</Button></Link>
+const DashBoard = () => {
+    const { isLoading, admin ,logOut} = useValue();
+    const [control, setControl] = useState("manageAllOrders");
+    return (
+        <>
+            {
+                isLoading ? <div className="text-center">
+                    <Spinner animation="border" variant="success" className=""
+                    />
+                </div>
 
-            </Box>
+                    : <div >
+
+                        <div className=" grid md:grid-cols-4 dashboardbg ">
+                            <div className=" bg-gray-700 md:h-screen py-10 flex justify-center ">
+                                <div className="flex flex-col   ">
+                                    <Link to="/home"><button className=" text-yellow-500  uppercase font-bold mb-2"> Home</button></Link>
+
+                                    {admin ? <div>
+                                        <button className=" text-yellow-500 uppercase font-bold mb-2" onClick={() => setControl("manageAllOrders")}>Manage All Orders</button>
+                                        <br /> <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("addProducts")}>Add A New Product</button>
+                                        <br />  <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("manageProducts")}>Manage Products</button>
+                                        <br /> <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("makeAdmin")}>Make A New Admin</button>
+
+                                    </div>
+                                        :
+                                        <div>
+                                            <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("myOrder")}>My Orders</button>
+                                            <br /> <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("paymentMethod")}>Make Payment</button>
+                                            <br /> <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("addReview")}>Review Us</button>
+
+                                        </div>}
+                                        <Link to="/home"><button onClick={logOut} className=" text-yellow-500  uppercase font-bold mb-2"> Log Out</button></Link>
+
+                                </div>
+                            </div>
+                            <div className=" md:col-span-3">
+                                {control === "manageAllOrders" && <ManageAllOrder />}
+                                {control === "addProducts" && <AddProducts />}
+                                {control === "manageProducts" && <ManageProducts />}
+                                {control === "makeAdmin" && <MakeAdmin />}
+
+
+
+                                {control === "myOrder" && <Myorder />}
+                                {control === "addReview" && <AddReview />}
+                                {control === "paymentMethod" && <Payment />}
+
+
+                            </div>
+                        </div>
+                    </div>
 
             }
-
-
-
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-
-        </div>
+        </>
     );
-
-    const container = window !== undefined ? () => window().document.body : undefined;
-
-    return (
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
-            <AppBar
-                position="fixed"
-                sx={{
-                    width: { sm: `calc(100% - ${drawerWidth}px)` },
-                    ml: { sm: `${drawerWidth}px` },
-                }}
-            >
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        Dash Board
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            <Box
-                component="nav"
-                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-                aria-label="mailbox folders"
-            >
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                <Drawer
-                    container={container}
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
-                    sx={{
-                        display: { xs: 'block', sm: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                >
-                    {drawer}
-                </Drawer>
-                <Drawer
-                    variant="permanent"
-                    sx={{
-                        display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                    open
-                >
-                    {drawer}
-                </Drawer>
-            </Box>
-            <Box
-                component="main"
-                sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-            >
-                <Toolbar />
-
-                <Switch>
-                    <Route exact path={path}>
-                        <DashBoardHome></DashBoardHome>
-                    </Route>
-                    <AdminRoute path={`${path}/makeAdmin`}>
-                        <MakeAdmin></MakeAdmin>
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/addDoctor`}>
-                        <AddDoctor></AddDoctor>
-                    </AdminRoute>
-                </Switch>
-
-            </Box>
-        </Box>
-    );
-}
-
-DashBoard.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    window: PropTypes.func,
 };
 
 export default DashBoard;
+
+/*
+    let { path, url } = useRouteMatch();
+    const { user, admin } = useAuth();
+
+<Link to={`${url}`}><button color="inherit">DashBoard</button></Link>
+<br />
+<Link to="myOrder"><button color="inherit">MyOrder</button></Link>
+
+
+
+
+{admin && <div>
+    <Link to={`${url}/makeAdmin`}><button color="inherit">Make Admin</button></Link>
+    <br />
+    <Link to={`${url}/addProduct`}><button color="inherit">Add doctor</button></Link>
+
+</div>
+}
+
+
+<Switch>
+                                <Route exact path={path}>
+                                    <DashBoard></DashBoard>
+                                </Route>
+                                <Route exact path={`${path}/myOrder`}>
+                                    <Myorder></Myorder>
+                                </Route>
+                                <AdminRoute path={`${path}/makeAdmin`}>
+                                    <MakeAdmin></MakeAdmin>
+                                </AdminRoute>
+                                <AdminRoute path={`${path}/addProduct`}>
+                                    <AddProducts></AddProducts>
+                                </AdminRoute>
+                            </Switch> */

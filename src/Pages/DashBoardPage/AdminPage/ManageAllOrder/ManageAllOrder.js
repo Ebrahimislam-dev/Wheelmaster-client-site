@@ -9,16 +9,10 @@ const ManageAllOrder = () => {
     const [error, setError] = useState('');
     console.log(error);
 
-    // const {
-    //     register,
-    //     handleSubmit,
-
-    //     formState: { errors },
-    // } = useForm();
     // loading data from database 
     useEffect(() => {
         setIsLoading(true);
-        fetch('https://frozen-refuge-45390.herokuapp.com/allorder')
+        fetch('http://localhost:5000/allorder')
             .then(res => res.json())
             .then(data => {
                 setOrders(data);
@@ -31,7 +25,7 @@ const ManageAllOrder = () => {
     }, [setOrders, setIsLoading]);
 
     const handleDelete = id => {
-        const url = `https://frozen-refuge-45390.herokuapp.com/allorder/${id}`;
+        const url = `http://localhost:5000/allorder/${id}`;
         fetch(url, {
             method: "DELETE"
         })
@@ -50,16 +44,9 @@ const ManageAllOrder = () => {
             })
     }
 
-    // //update
-    // const handleStatusChange = e => {
-    //     const updateStatus = e.target.value;
-    //     const updateUser = { ...orders };
-    //     updateUser.status = updateStatus;
-    //     setOrders(updateUser)
-    // }
 
     const handleUpdateOrder = id => {
-        const url = `https://frozen-refuge-45390.herokuapp.com/allorder/${id}`;
+        const url = `http://localhost:5000/allorder/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -87,7 +74,7 @@ const ManageAllOrder = () => {
 
                 ) : (
                     <div className="container-fluid  mb-1">
-                        <Table responsive="sm" striped bordered hover>
+                        <Table responsive="sm" className="text-white" striped bordered hover>
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -102,35 +89,22 @@ const ManageAllOrder = () => {
                                 </tr>
                             </thead>
                             {orders?.map((order, index) => (
-                                <tbody>
-                                    <tr>
-                                        <td >{index}</td>
+                                <tbody >
+                                    <tr >
+                                        <td className="text-white" >{index}</td>
 
-                                        <td >{order?.name}</td>
-                                        <td>{order?.displayName}</td>
-                                        <td>{order?.email}</td>
-                                        <td>{order?.status}</td>
-                                        <td>{order?.address}</td>
-                                        <td>{order?.phoneNo}</td>
-                                        <td>{order?.date}</td>
-                                        <button className="btn-outline-danger mt-1 mb-3 fw-bold px-3" onClick={() => handleDelete(order._id)} >Delete</button>
-                                        <button className="btn-outline-success p-2 mb-1 fw-bold" onClick={() => handleUpdateOrder(order._id)}>Approved</button>
-
-
-                                        {/* <form onSubmit={handleSubmit(onSubmit)}>
-
-                                            <input
-                                                type="hidden" onChange={handleStatusChange}
-                                                {...register("status", { required: true })}
-                                                defaultValue="Booked"
+                                        <td className="text-white" >{order?.name}</td>
+                                        <td className="text-white" >{order?.displayName}</td>
+                                        <td className="text-white" >{order?.email}</td>
+                                        <td className="text-white" >{order?.status}</td>
+                                        <td className="text-white" >{order?.address}</td>
+                                        <td className="text-white" >{order?.phoneNo}</td>
+                                        <td className="text-white" >{order?.date}</td>
+                                        <button className="btn-outline-danger mt-1 mb-3 fw-bold px-3 text-white" onClick={() => handleDelete(order._id)} >Delete</button>
+                                        <button className="btn-outline-success p-2 mb-1 fw-bold text-white" onClick={() => handleUpdateOrder(order._id)}>Approved</button>
 
 
-                                            />
 
-
-                                            {errors.exampleRequired && <span>This field is required</span>}
-                                            <input type="submit" value="Confirm Order" className="btn btn-danger fs-5 fw-bold submit" />
-                                        </form> */}
                                     </tr>
                                 </tbody>
                             ))}

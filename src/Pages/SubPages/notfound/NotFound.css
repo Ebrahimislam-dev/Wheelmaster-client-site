@@ -1,0 +1,22 @@
+.error{
+    width:100%;
+    height: 80vh; 
+  
+    background-image: linear-gradient(180deg, #0000006E 60%, #020202 100%),url(https://i.ibb.co/P9tPYpN/error.png);
+    background-repeat: no-repeat;
+    background-position:center; 
+    background-size:contain ;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+@media only screen and (max-width:680px){
+    .error{
+        
+        background-position:center;
+        background-size: cover;
+        height: 35vh;
+        
+      
+    }
+}

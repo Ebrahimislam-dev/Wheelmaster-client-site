@@ -1,0 +1,18 @@
+.add-review form{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+.add-review form input,textarea{
+    width: 75%;
+    margin-bottom: 30px;
+    
+}
+.add-review .submit{
+    width: 40%;
+    margin-bottom: 30px;
+    
+}

@@ -1,11 +1,14 @@
-import { CircularProgress } from '@mui/material';
+
 import React from 'react';
 import { Redirect, Route } from 'react-router';
-import useAuth from '../../../hooks/useAuth';
+// import useAuth from '../../../hooks/useAuth';
+import { Spinner } from 'react-bootstrap';
+import useValue from '../../../hooks/useValue';
 
 const PrivateRoute = ({ children, ...rest }) => {
-    const { user, isLoading } = useAuth();
-    if (isLoading) { return <CircularProgress /> }
+    // const { user, isLoading } = useAuth();
+    const { user, isLoading } = useValue();
+    if (isLoading) { return <Spinner animation="border" variant="danger" /> }
     return (
         <Route
             {...rest}

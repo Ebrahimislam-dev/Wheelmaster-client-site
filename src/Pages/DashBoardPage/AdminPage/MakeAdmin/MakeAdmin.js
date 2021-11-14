@@ -1,5 +1,6 @@
-import { Alert, Button, TextField } from '@mui/material';
+
 import React, { useState } from 'react';
+import { Alert } from 'react-bootstrap';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
@@ -9,7 +10,7 @@ const MakeAdmin = () => {
     }
     const handleMakeAdmin = e => {
         const user = { email };
-        fetch(`https://vast-bayou-58257.herokuapp.com/users/admin`, {
+        fetch(`http://localhost:5000/users/admin`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -31,17 +32,18 @@ const MakeAdmin = () => {
     }
     return (
         <div>
-            <h2>make an admin</h2>
+            <h2 className="text-white text-3xl mb-20">Make An Admin from Users</h2>
             <form onSubmit={handleMakeAdmin}>
-                <TextField
-                    sx={{ width:'50%'}}
+                <input
+
                     type="email"
-                    id="standard-basic"
-                    label="Email"
+                    placeholder="Input a Valid Email"
+                    className="w-6/12 my-2 py-2 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                     onBlur={handleOnBlur}
-                    variant="standard"
+
                 />
-                <Button type="submit" variant="contained">Make Admin</Button>
+                <br />
+                <button type="submit" className="w-4/12 py-1 rounded-xl bg-yellow-500 text-black font-bold text-xl mb-3" >Make Admin</button>
             </form>
             {
                 success && <Alert severity="success">Create A Admin Successfully!</Alert>

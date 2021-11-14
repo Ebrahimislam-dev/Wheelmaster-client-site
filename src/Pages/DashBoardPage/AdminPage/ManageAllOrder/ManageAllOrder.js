@@ -45,7 +45,7 @@ const ManageAllOrder = () => {
     }
 
 
-    const handleUpdateOrder = id => {
+/*     const handleUpdateOrder = id => {
         const url = `http://localhost:5000/allorder/${id}`;
         fetch(url, {
             method: 'PUT',
@@ -62,7 +62,7 @@ const ManageAllOrder = () => {
                     setOrders({})
                 }
             })
-    }
+    } */
 
     return (
         <div>
@@ -101,7 +101,7 @@ const ManageAllOrder = () => {
                                         <td className="text-white" >{order?.phoneNo}</td>
                                         <td className="text-white" >{order?.date}</td>
                                         <button className="btn-outline-danger mt-1 mb-3 fw-bold px-3 text-white" onClick={() => handleDelete(order._id)} >Delete</button>
-                                        <button className="btn-outline-success p-2 mb-1 fw-bold text-white" onClick={() => handleUpdateOrder(order._id)}>Approved</button>
+                                        {/* <button className="btn-outline-success p-2 mb-1 fw-bold text-white" onClick={() => handleUpdateOrder(order._id)}>Approved</button> */}
 
 
 

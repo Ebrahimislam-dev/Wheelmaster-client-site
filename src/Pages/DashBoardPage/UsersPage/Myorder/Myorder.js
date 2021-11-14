@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { Spinner, Table } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import useValue from '../../../../hooks/useValue';
 // import useAuth from '../../../hooks/useAuth';
-
+import { MdDelete } from 'react-icons/md';
 
 const Myorder = () => {
     // const { user } = useAuth();
@@ -51,51 +51,55 @@ const Myorder = () => {
 
     return (
         <div>
-            <h1 className="heading mt-5 mb-5 text-white">MY <span className="text-danger ">ORDERS</span></h1>
             {
-
                 isLoading ? (
-                    <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
+                    <div className="flex justify-center my-7">
+                        <Spinner animation="border" variant="warning" />
+                    </div>
 
                 ) : (
-                    <div className="container-fluid row  mb-1">
-                        <div className="container col-md-10">
-                            <Table responsive="sm" className="text-white" striped bordered hover>
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Order Name</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
+                    <div>
 
-                                        <th>Order Date</th>
-                                        <th>Order Status</th>
+                        <section className="flex flex-col justify-center items-center pt-24 md:mx-0 mx-4 mb-10 ">
 
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
+                            <p className="font-extrabold text-gray-200 border-b-4 border-yellow-500 text-xl md:text-5xl">My Orders</p>
+                        </section>
+                        <section className="flex justify-center">
+                            <div className="md:w-8/12 mx-10">
 
-                                {myorders?.map((order, index) => (
-                                    <tbody>
-                                        <tr>
-                                            <td className="text-white">{index}</td>
-                                            <td className="text-white">{order?.name}</td>
-                                            <td className="text-white">{order?.displayName}</td>
-                                            <td className="text-white">{order?.email}</td>
+                                {
+                                    myorders.map(order => {
+                                        const { _id, serviceName, displayName, img, price, email, status } = order
+                                        return (
+                                            <div >
+                                                <div className="  flex flex-col md:flex-row items-center justify-between mb-3 shadow-md border p-3">
+                                                    <div className="flex flex-col  md:flex-row">
+                                                        <div className="md:mx-0 mx-auto">
+                                                            <img src={img} alt="" className=" md:w-24 md:h-24 md:mr-10 w-40" />
+                                                        </div>
+                                                        <div className="mt-3 mx-mt-0 md:ml-8 text-gray-200">
+                                                            <h1 className="text-xl font-mono font-bold">{serviceName} </h1>
+                                                            <p className="text-yellow-600 font-bold mb-2">price: {price}</p>
+                                                            <p className="font-bold mb-1">Order-Status:<span className="font-normal font-mono"> {status}</span></p>
 
-                                            <td className="text-white">{order?.date}</td>
-                                            <td className="text-white">{order?.status}</td>
-                                            <button className="btn-outline-danger mt-1 mb-3 fw-bold px-3 text-white" onClick={() => handleDelete(order._id)} >Cancel</button>
-                                            <button className="btn-outline-success p-2 mb-1 fw-bold text-white">Approved</button>
+                                                        </div>
 
-                                        </tr>
-                                    </tbody>
-                                ))}
+                                                    </div>
+                                                    <div className="flex items-center mt-3 md:mt-0">
+                                                        <button className="text-gray-200">{status}  </button>
+                                                        <button onClick={() => handleDelete(_id)}><MdDelete className=" text-3xl text-red-500" /></button>
+                                                    </div>
+                                                </div>
 
-                            </Table>
-                        </div>
+
+                                            </div>
+
+                                        )
+                                    })
+                                }
+
+                            </div>
+                        </section>
 
                     </div>
                 )

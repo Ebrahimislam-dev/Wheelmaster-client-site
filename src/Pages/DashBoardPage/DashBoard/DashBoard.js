@@ -6,11 +6,12 @@ import Myorder from './../UsersPage/Myorder/Myorder';
 import AddReview from './../UsersPage/AddReview/AddReview';
 import Payment from './../UsersPage/PaymentMethod/Payment';
 import MakeAdmin from '../AdminPage/MakeAdmin/MakeAdmin';
-import ManageAllOrder from '../AdminPage/ManageAllOrder/ManageAllOrder';
+// import ManageAllOrder from '../AdminPage/ManageAllOrder/ManageAllOrder';
 import AddProducts from '../AdminPage/AddProduct/AddProducts';
 import useValue from '../../../hooks/useValue';
 import './DashBoard.css'
 import { Link } from 'react-router-dom';
+import ManageOrders from '../AdminPage/ManageAllOrder/ManageOrders';
 
 
 
@@ -18,7 +19,7 @@ import { Link } from 'react-router-dom';
 
 const DashBoard = () => {
     const { isLoading, admin ,logOut} = useValue();
-    const [control, setControl] = useState("manageAllOrders");
+    const [control, setControl] = useState("");
     return (
         <>
             {
@@ -53,7 +54,8 @@ const DashBoard = () => {
                                 </div>
                             </div>
                             <div className=" md:col-span-3">
-                                {control === "manageAllOrders" && <ManageAllOrder />}
+                                {/* {control === "manageAllOrders" && <ManageAllOrder />} */}
+                                {control === "manageAllOrders" && <ManageOrders />}
                                 {control === "addProducts" && <AddProducts />}
                                 {control === "manageProducts" && <ManageProducts />}
                                 {control === "makeAdmin" && <MakeAdmin />}

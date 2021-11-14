@@ -11,7 +11,7 @@ import useValue from '../../../hooks/useValue';
 const Header = () => {
     const [navbar, setNavbar] = useState(false)
     // const { admin, user, logOut } = useAuth();
-    const { admin, user, logOut } = useValue();
+    const { user, logOut } = useValue();
     const changBackground = () => {
         window.scrollY >= 100 ? setNavbar(false) : setNavbar(true)
     }

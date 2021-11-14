@@ -28,11 +28,11 @@ const AddReview = () => {
                 </div> : <div className="add-review md:h-screen h-full md:px-28">
                     <div className="grid grid-cols-2">
                         <form onSubmit={handleSubmit(onSubmit)} className="">
-                            <input {...register("name", { required: true, maxLength: 20 })} /* defaultValue={user.displayName} */ className="fs-4 rounded" />
-                            <input {...register("name", { required: true, maxLength: 20 })} placeholder="Your Degnation" className="fs-4 rounded" />
+                            <input {...register("displayName", { required: true, maxLength: 20 })} placeholder="Your Name"  defaultValue={user.displayName}  className="fs-4 rounded" />
+                            <input {...register("profession", { required: true, maxLength: 20 })} placeholder="Your profession" className="fs-4 rounded" />
                             <textarea {...register("description")} placeholder="Write  Your Review About us" className="fs-5 w-75 rounded" />
                             <input {...register("rating")} placeholder="Rating (1-5)" className="fs-4 rounded" />
-                            <input {...register("img")}  className="fs-4 rounded" />
+                            <input {...register("img")} placeholder="your image url" defaultValue={user.photoURL} className="fs-4 rounded" />
                             <input type="submit" className="submit bg-danger text-white fs-4 rounded-pill" />
                         </form>
                     </div>

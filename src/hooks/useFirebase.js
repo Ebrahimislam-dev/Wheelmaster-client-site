@@ -83,7 +83,7 @@ const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unSubscribe;
-    }, []);
+    }, [auth]);
 
 
     //save data to my database \

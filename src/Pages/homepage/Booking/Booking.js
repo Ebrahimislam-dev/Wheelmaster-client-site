@@ -95,19 +95,7 @@ const Booking = () => {
                                             <Col>
                                                 <Card className=" bg-black mb-5">
                                                     <Card.Img variant="top" src={singleService[0]?.img} />
-                                                    {/* <Card.Body>
-                                                        <Card.Title>{singleService[0]?.name}</Card.Title>
-                                                        <Card.Text>
-                                                            <h5>
-                                                                About Service: <small className="pb-3 fs-6 text-start"> {singleService[0]?.description}</small>
-                                                            </h5>
-
-                                                        </Card.Text>
-                                                    </Card.Body>
-                                                    <Card.Footer>
-                                                       
-
-                                                    </Card.Footer> */}
+                                                    
                                                 </Card>
                                             </Col>
                                         </div>
@@ -123,9 +111,24 @@ const Booking = () => {
                                             <h1 className="text-2xl text-white">Please Fill The Order Form</h1>
                                             <form onSubmit={handleSubmit(onSubmit)}>
                                                 {singleService[0] && <input
-                                                    {...register("name", { required: true })}
+                                                    {...register("serviceName", { required: true })}
                                                     placeholder="Service Name"
                                                     defaultValue={singleService[0]?.name}
+                                                    className="w-8/12 my-2 mt-2 p-1  border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
+                                                />}
+                                                {singleService[0] && <input
+                                                    {...register("img", { required: true })}
+                                                    type="hidden"
+                                                  
+                                                    defaultValue={singleService[0]?.img}
+                                                    className="w-8/12 my-2 mt-2 p-1  border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
+                                                />
+                                                }
+                                                {singleService[0] && <input
+                                                    {...register("price", { required: true })}
+                                                    type="hidden"
+                                                   
+                                                    defaultValue={singleService[0]?.price}
                                                     className="w-8/12 my-2 mt-2 p-1  border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                                                 />
                                                 }
@@ -166,13 +169,13 @@ const Booking = () => {
 
                                                     className="w-8/12 my-2 mt-2 p-1 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                                                 />
-                                                <input
+                                                {/* <input
                                                     type="hidden"
                                                     {...register("status", { required: true })}
                                                     defaultValue="Pending"
 
 
-                                                />
+                                                /> */}
 
                                                 {errors.exampleRequired && <span>This field is required</span>}
 

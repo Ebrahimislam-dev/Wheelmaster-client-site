@@ -16,7 +16,7 @@ const Products = () => {
 
             <div className="flex justify-center mb-8 uppercase ">
 
-                <span class=" line"></span>
+                <span className=" line"></span>
                 <h1 className="heading pt-5 pb-10 text-white animate-pulse">
                     Our <span className="text-danger"> Bike's </span>
                 </h1>
@@ -40,7 +40,7 @@ const Products = () => {
                     </Button>
 
                 ) : (
-                    <div className="container-fluid  mb-1">
+                    <div className="container-fluid ">
 
                         <Row xs={1} md={3} className="px-10">
                             {

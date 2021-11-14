@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Welcome To Wheel Master 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## My Site Link 
+Live Link: [Wheel Master](https://wheel-master-43fc4.web.app/).
 
-## Available Scripts
+## About My Project
 
-In the project directory, you can run:
+Basically this project is based on bicycle sell company . in this site you can find Bicycles for buy , also you can see the details, and book a product.Also you can review this page. In this project created i use  Reactjs,react-router-dom React slick, React-rating, React icons, react-bootstrap compononent, and tailwind css framework Mongodb-Atlas, nodejs-express, etc........    
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Project Features For Users
+-   User can see our products.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+-  User Must at first login. Then User can buy Our Products.
 
-### `yarn test`
+-  User can also see their  Booking products on my order route.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-  User can see his ow dashBoard.
 
-### `yarn build`
+-  Also User can delete their booking any time .
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-  User can Contact With us, Know to  Our products.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-  User can know about us.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-  User can also connect with us via social medias.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Project Features For Admin
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-  An Admin Access Whole site whenever He Login To Website
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+-  An admin Can add a Service form Admin panel which is Showed in Dashboard
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-  An admin can delete a service From Manage products, which is auto update in home page.
 
-## Learn More
+-  An admin Can see all users Orders and he can approve or delete the Orders.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- An admin also create a admin by email.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Project Functinalitys
 
-### Analyzing the Bundle Size
+*  In this project I use Mongodb_Atlas Database system For storing Data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+*  In this project I use NodeJs Express framework for Server site and deploy the server in Heroku app.
 
-### Making a Progressive Web App
+*  In this project I use react for Client site, Also use bootstrap compononent and and Css library react routers   for  routing one path to another path also Use Private Routes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+*  it's Authorised by firebase login & register System, whenever you login or Register to our page, the Service You can access to  our Booking System .
 
-### Advanced Configuration
+*  Here also a secure Admin panel and user panel.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+*  There are also a 404 not found page show whenever someone try to go different pages.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

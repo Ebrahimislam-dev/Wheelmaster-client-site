@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from '../../SubPages/Header/Header';
 import Products from '../ProductPage/Products';
+import Reviews from '../Reviews/Reviews';
+import Subscribe from '../Subscribe/Subscribe';
 
 import Works from '../Works/Works';
 import Banner from './../banner/Banner';
@@ -14,8 +16,9 @@ const Home = () => {
 
 
             <Works></Works>
-           <Products></Products>
-
+            <Products></Products>
+            <Subscribe></Subscribe>
+            <Reviews></Reviews>
         </div>
     );
 };

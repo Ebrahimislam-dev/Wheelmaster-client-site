@@ -1,18 +1,22 @@
 import React from 'react';
+import Header from '../Header/Header';
 import "./Contact.css"
 const Contactus = () => {
     return (
-        <div className="container-fluid">
+        <div className="container-fluid bg-black">
+            <div className="pb-28">
+                <Header></Header>
+            </div>
             {/* Contact use 1st Section */}
-            <div className="container">
+            <div className="container text-gray-200 pb-10">
                 <div className="row container">
                     <h1 className="heading mb-5 mt-2">
                         CONTACT  <span className="text-danger ms-3">US</span>
                     </h1>
 
-                    <div className="col-md-5 text-start ms-3">
-                        <h5>
-                            Travel Mama
+                    <div className="col-md-5 text-start ms-3 pb-3">
+                        <h5 className="text-uppercase">
+                        wheel master
                         </h5>
                         <p>
                             Jubli Road, Chittagong-4318, Bangladesh <br />
@@ -20,39 +24,39 @@ const Contactus = () => {
 
                             Tel.: +88-03042-51153,+88-03042-51155,+88-03042-51156<br />
                             Fax.: 03042 51160 <br />
-                            Email: info@travelmama.com
+                            Email: info@wheelmaster.com
                         </p>
                     </div>
                     <div className="col-md-5 text-start ms-3">
                         <h5>
-                            For Tour Related Query
+                            For Cycle Related Query
                         </h5>
                         <p>
                             Tel.: +88-03042-51154-61, Ext. 317, 390 <br />
                             Mobile No.: 01720478621, 01844072000 <br />
                             Mobile Numbers remain open during office hour (08.30 AM to 04.00 PM) <br />
 
-                            Email Address: info@travelmama.com <br />
+                            Email Address: info@wheelmaster.com <br />
                         </p>
                     </div>
-                    <div className="col-md-5 text-start ms-3">
+                    <div className="col-md-5 text-start ms-3 pb-3">
                         <h5>
-                            For Services Query
+                            For Services Related Query
                         </h5>
                         <p>
                             Tel.: +88-03042-51154-61, Ext. 385 <br />
                             Mobile : +8809613230513 <br />
-                            Email Address: info@travelmama.com
+                            Email Address: info@wheelmaster.com
                         </p>
                     </div>
                     <div className="col-md-5 text-start ms-3">
                         <h5>
-                            For Guide Related Query
+                            For Support
                         </h5>
                         <p>
                             Tel.: +88-03042-51154-61, Ext. 384, 3060 <br />
                             Mobile: 01832223310 <br />
-                            Email Address: info@travelmama.com
+                            Email Address: info@wheelmaster.com
                         </p>
                     </div>
 

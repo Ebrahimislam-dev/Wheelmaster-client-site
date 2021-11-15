@@ -12,7 +12,7 @@ const DashboardHeader = () => {
     return (
         <div>
             <nav className=" md:w-screen md:flex justify-around items-center w-full py-4 bg-gray-900 shadow-lg z-10 ">
-                <div className=" md:mr-20  ">
+                <div className="   ">
                     <NavLink to="/home" className=" text-2xl font-bold no-underline flex md:justify-start justify-center items-center" >
                         <img src="https://i.ibb.co/rFJsMZv/main-logo.png" alt="" className="w-10" />
                         <span className=" text-white font-mono mt-2" >Wheelmaster</span>

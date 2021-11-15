@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Spinner } from "react-bootstrap";
+import { Spinner,Button } from "react-bootstrap";
 import ManageProductsCard from './ManageProductsCard';
 
 
@@ -44,7 +44,16 @@ const ManageProducts = () => {
 
             {
                 isLoading ? (
-                    <Spinner animation="border" variant="info" />
+                    <Button variant="danger" disabled>
+                        <Spinner
+                            as="span"
+                            animation="grow"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                        />
+                        Loading...
+                    </Button>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-4">
                         {
@@ -66,7 +75,6 @@ const ManageProducts = () => {
 
 export default ManageProducts;
 
-/*
-                ) */
+
 
 

@@ -95,7 +95,7 @@ const Booking = () => {
                                             <Col>
                                                 <Card className=" bg-black mb-5">
                                                     <Card.Img variant="top" src={singleService[0]?.img} />
-                                                    
+
                                                 </Card>
                                             </Col>
                                         </div>
@@ -108,7 +108,7 @@ const Booking = () => {
                                 <div className=" order-services  m-auto">
                                     <div className=" border d-flex justify-content-center align-items-center">
                                         <div>
-                                            <h1 className="text-2xl text-white">Please Fill The Order Form</h1>
+                                            <h1 className="text-2xl text-white mt-12 font-serif">Please Fill The Order Form</h1>
                                             <form onSubmit={handleSubmit(onSubmit)}>
                                                 {singleService[0] && <input
                                                     {...register("serviceName", { required: true })}
@@ -119,7 +119,7 @@ const Booking = () => {
                                                 {singleService[0] && <input
                                                     {...register("img", { required: true })}
                                                     type="hidden"
-                                                  
+
                                                     defaultValue={singleService[0]?.img}
                                                     className="w-8/12 my-2 mt-2 p-1  border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                                                 />
@@ -127,7 +127,7 @@ const Booking = () => {
                                                 {singleService[0] && <input
                                                     {...register("price", { required: true })}
                                                     type="hidden"
-                                                   
+
                                                     defaultValue={singleService[0]?.price}
                                                     className="w-8/12 my-2 mt-2 p-1  border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                                                 />
@@ -138,7 +138,7 @@ const Booking = () => {
                                                     {...register("displayName", { required: true })}
                                                     placeholder="Name"
                                                     defaultValue={user.displayName}
-                                                    className="w-8/12 my-2 mt-2 p-1 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
+                                                    className="w-8/12 my-2 mt-4 p-1 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                                                 />
 
 
@@ -146,20 +146,20 @@ const Booking = () => {
                                                     {...register("email", { required: true })}
                                                     placeholder="Email"
                                                     defaultValue={user.email}
-                                                    className="w-8/12 my-2 mt-2 p-1 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
+                                                    className="w-8/12 my-2 mt-4 p-1 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                                                 />
 
                                                 <input
                                                     {...register("date", { required: true })}
                                                     placeholder="Date"
                                                     defaultValue={new Date()}
-                                                    className="w-8/12 my-2 mt-2 p-1 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
+                                                    className="w-8/12 my-2 mt-4 p-1 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                                                 />
 
                                                 <input
                                                     {...register("address", { required: true })}
                                                     placeholder="Address"
-                                                    className="w-8/12 my-2 mt-2 p-1 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
+                                                    className="w-8/12 my-2 mt-4 p-1 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                                                 />
 
                                                 <input
@@ -167,7 +167,7 @@ const Booking = () => {
                                                     {...register("phoneNo", { required: true })}
                                                     placeholder="Phone No"
 
-                                                    className="w-8/12 my-2 mt-2 p-1 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
+                                                    className="w-8/12 my-2 mt-4 p-1 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                                                 />
                                                 {/* <input
                                                     type="hidden"
@@ -179,25 +179,28 @@ const Booking = () => {
 
                                                 {errors.exampleRequired && <span>This field is required</span>}
 
-                                                <input type="submit" value="Confirm Order" className="btn btn-danger fs-5 fw-bold submit" />
+                                                <input type="submit" value="Place Order" className=" rounded-xl bg-yellow-500 text-black font-bold md:text-xl mt-3  submit" />
                                             </form>
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <Link to="/home">
-                                <button className="w-2/12 py-2  rounded-xl bg-yellow-500 text-black font-bold text-xl mb-3">Backto Home</button>
-                            </Link>
-                            <Link to="/exploreProducts">
-                                <button className="w-2/12 py-2  rounded-xl bg-yellow-500 text-black font-bold text-xl mb-3">Book Another Service</button>
-                            </Link>
+
 
                         </div>
 
                     </div>
                 )
+
             }
+            <Link to="/home">
+                <button className="md:w-2/12 py-2 md:px-0 px-8 md:mt-0  mt-4 rounded-xl bg-yellow-500 text-black font-bold text-xs md:text-xl mb-3">Backto Home</button>
+            </Link>
+            <br />
+            <Link to="/exploreProducts">
+                <button className="md:w-2/12 py-2 md:px-0 px-8 md:mt-0  mt-2 rounded-xl bg-yellow-500 text-black font-bold text-xs md:text-xl mb-3">Book Another Service</button>
+            </Link>
         </div>
 
 

@@ -16,7 +16,7 @@ const Contactus = () => {
 
                     <div className="col-md-5 text-start ms-3 pb-3">
                         <h5 className="text-uppercase">
-                        wheel master
+                            wheel master
                         </h5>
                         <p>
                             Jubli Road, Chittagong-4318, Bangladesh <br />
@@ -66,7 +66,7 @@ const Contactus = () => {
             </div>
             {/* Contactus 2nd section */}
             <div>
-                <div className="contact-bg text-black-50 fw-bold p-5 mb-1 rounded">
+                <div className="contact-bg text-gray-200 fw-bold p-5  rounded">
                     <h1 className="text-center m-3 fs-1 fst-italic">Conatct Us Via Mail</h1>
                     <form>
                         <div className="row mb-3">

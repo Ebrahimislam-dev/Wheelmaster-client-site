@@ -21,4 +21,9 @@
         
       
     }
+    .subline{
+        width: 200px;
+        height: 4px;
+        border-bottom: 2px solid rgb(233, 17, 17);
+    }
 }

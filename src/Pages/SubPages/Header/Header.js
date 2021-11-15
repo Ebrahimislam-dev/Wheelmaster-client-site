@@ -72,7 +72,7 @@ const Header = () => {
 
                         {user.email && <div>
 
-                            <NavLink to="/profile" className=" text-2xl text-black">
+                            <NavLink to="/home" className=" text-2xl text-black">
                                 <div className="flex items-center">
                                     <img src={user.photoURL} alt="" className="rounded-full border-2 border-yellow-400 w-12 h-12 mr-1" />
                                     <span className={navbar ? "font-semibold text-xs md:text-white" : "font-semibold text-xs text-black"}>{user.displayName}</span>

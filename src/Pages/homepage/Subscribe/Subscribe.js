@@ -25,7 +25,7 @@ const Subscribe = () => {
                             className="w-10/12 md:py-3 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600   focus:border-transparent"
                         />
                         <br />
-                        <button className="md:w-4/12  md:py-2 mt-2 rounded-xl bg-yellow-500 text-black font-bold text-xl mb-3" type="submit">SUBSCRIBE</button>
+                        <button className="md:w-4/12  md:py-2 mt-2 md:rounded-xl bg-yellow-500 text-black font-bold text-md md:text-xl  mb-3" type="submit">SUBSCRIBE</button>
 
                     </div>
                 </div>

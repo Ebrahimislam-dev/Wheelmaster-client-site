@@ -1,10 +1,10 @@
 .contact-bg{
    
-        background-image:url("https://i.ibb.co/M2QQBFx/bg-contact.png");
+        background-image:url("https://i.ibb.co/jvh07cV/img2.png");
         width: 100%;
         height: auto;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size:contain;
         
       
 }

@@ -12,16 +12,19 @@ import useValue from '../../../hooks/useValue';
 import './DashBoard.css'
 import { Link } from 'react-router-dom';
 import ManageOrders from '../AdminPage/ManageAllOrder/ManageOrders';
+import DashboardHome from './DashboardHome';
+import DashboardHeader from './DashboardHeader';
 
 
 
 
 
 const DashBoard = () => {
-    const { isLoading, admin ,logOut} = useValue();
-    const [control, setControl] = useState("");
+    const { isLoading, admin, logOut } = useValue();
+    const [control, setControl] = useState("dashboardhome");
     return (
         <>
+
             {
                 isLoading ? <div className="text-center">
                     <Spinner animation="border" variant="success" className=""
@@ -29,27 +32,33 @@ const DashBoard = () => {
                 </div>
 
                     : <div >
-
-                        <div className=" grid md:grid-cols-4 dashboardbg ">
-                            <div className=" bg-gray-700 md:h-screen py-10 flex justify-center ">
+                        <div>
+                            <DashboardHeader></DashboardHeader>
+                        </div>
+                        <div className=" grid md:grid-cols-4 dashboardbg  ">
+                            <div className=" bg-gray-900 md:h-screen py-10 flex justify-center ">
                                 <div className="flex flex-col   ">
-                                    <Link to="/home"><button className=" text-yellow-500  uppercase font-bold mb-2"> Home</button></Link>
+                                    <button className=" text-yellow-500 uppercase font-bold mb-4" onClick={() => setControl("dashboardhome")}>Welcome</button>
+                                    <Link to="/home"><button className=" text-yellow-500  uppercase font-bold mb-4"> Home</button></Link>
 
                                     {admin ? <div>
-                                        <button className=" text-yellow-500 uppercase font-bold mb-2" onClick={() => setControl("manageAllOrders")}>Manage All Orders</button>
-                                        <br /> <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("addProducts")}>Add A New Product</button>
-                                        <br />  <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("manageProducts")}>Manage Products</button>
-                                        <br /> <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("makeAdmin")}>Make A New Admin</button>
+
+                                        <button className=" text-yellow-500 uppercase font-bold mb-4" onClick={() => setControl("manageAllOrders")}>Manage All Orders</button>
+                                        <br /> <button className=" text-yellow-500  uppercase font-bold mb-4" onClick={() => setControl("addProducts")}>Add A New Product</button>
+                                        <br />  <button className=" text-yellow-500  uppercase font-bold mb-4" onClick={() => setControl("manageProducts")}>Manage Products</button>
+                                        <br /> <button className=" text-yellow-500  uppercase font-bold mb-4" onClick={() => setControl("makeAdmin")}>Make A New Admin</button>
 
                                     </div>
                                         :
                                         <div>
-                                            <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("myOrder")}>My Orders</button>
-                                            <br /> <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("paymentMethod")}>Make Payment</button>
-                                            <br /> <button className=" text-yellow-500  uppercase font-bold mb-2" onClick={() => setControl("addReview")}>Review Us</button>
+                                            <button className=" text-yellow-500  uppercase font-bold mb-4" onClick={() => setControl("myOrder")}>My Orders</button>
+                                            <br /> <button className=" text-yellow-500  uppercase font-bold mb-4" onClick={() => setControl("addReview")}>Review Us</button>
+
+                                            <br /> <button className=" text-yellow-500  uppercase font-bold mb-4" onClick={() => setControl("paymentMethod")}>Make Payment</button>
 
                                         </div>}
-                                        <Link to="/home"><button onClick={logOut} className=" text-yellow-500  uppercase font-bold mb-2"> Log Out</button></Link>
+
+                                    <Link to="/home"><button onClick={logOut} className=" text-yellow-500  uppercase font-bold mb-4"> Log Out</button></Link>
 
                                 </div>
                             </div>
@@ -59,6 +68,9 @@ const DashBoard = () => {
                                 {control === "addProducts" && <AddProducts />}
                                 {control === "manageProducts" && <ManageProducts />}
                                 {control === "makeAdmin" && <MakeAdmin />}
+
+
+                                {control === "dashboardhome" && <DashboardHome />}
 
 
 
